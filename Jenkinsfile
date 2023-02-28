@@ -1,7 +1,7 @@
 pipeline{
 	agent any
 	perameters{
-		string(name: "PORT" description: "Please assign one port number to docker container:")
+		string(name: "PORT", description: "Please assign one port number to docker container:")
 	}
 	stages{
 		stage("Cleaning workspace"){
