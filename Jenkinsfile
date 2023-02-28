@@ -15,7 +15,7 @@ pipeline{
 
         stage("Creating container"){
         	steps{
-        		sh "docker run --p 80:80 --name httpd_${GIT_BRANCH} httpd"
+        		sh "docker run -dp 80:80 --name httpd_${GIT_BRANCH} httpd"
         	}
 
         }
