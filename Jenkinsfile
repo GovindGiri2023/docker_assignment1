@@ -10,12 +10,6 @@ pipeline{
 			}
 
 		}
-		stage("Removing Runnint container"){
-			steps{
-			
-				//sh "sudo docker rm httpd_${GIT_BRANCH}"
-			}
-        	}
 
         	stage("Creating container"){
         		steps{
