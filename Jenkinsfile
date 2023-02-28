@@ -1,5 +1,8 @@
 pipeline{
 	agent any
+	perameters{
+		string(name: "PORT" description: "Please assign one port number to docker container:")
+	}
 	stages{
 		stage("Cleaning workspace"){
 			steps{
@@ -15,7 +18,7 @@ pipeline{
 
         	stage("Creating container"){
         		steps{
-				sh "sudo docker run -dp 80:80 --name httpd1_${GIT_BRANCH} httpd"
+				sh "sudo docker run -dp ${PORT}:80 --name httpd1_${GIT_BRANCH} httpd"
         		}
 
         }
