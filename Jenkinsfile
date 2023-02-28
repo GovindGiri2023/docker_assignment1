@@ -1,7 +1,7 @@
 pipeline{
 	agent {
 		label{
-			label "build_in"
+			label "built_in"
 		}
 	}
 	parameters{
