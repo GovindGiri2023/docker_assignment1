@@ -1,5 +1,9 @@
 pipeline{
-	agent any
+	agent {
+		label{
+			label "build_in"
+		}
+	}
 	parameters{
 		string(name: "PORT", description: "Please assign one port number to docker container:")
 	}
