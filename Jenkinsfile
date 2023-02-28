@@ -18,7 +18,7 @@ pipeline{
 
         	stage("Creating container"){
         		steps{
-				sh "sudo docker run -dp ${PORT}:80 --name httpd1_${GIT_BRANCH} httpd"
+				sh "sudo docker run -dp "${PORT}":80 --name httpd1_${GIT_BRANCH} httpd"
         		}
 
         }
