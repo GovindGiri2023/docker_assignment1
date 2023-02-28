@@ -10,13 +10,19 @@ pipeline{
 			}
 
 		}
-
+		stage("remmoving if containre is running"){
+			steps{
+				sh "sudo docker container rm -f httpd_${GIT_BRANCH} || true"
+		        }
+		      
+		
+		}
         	stage("Creating container"){
         		steps{
 				sh "sudo docker run -dp ${PORT}:80 --name httpd_${GIT_BRANCH} httpd"
         		}
 
-        }
+               }
 	}
 	
 }
