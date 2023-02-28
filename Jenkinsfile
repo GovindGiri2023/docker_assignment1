@@ -1,6 +1,6 @@
 pipeline{
 	agent any
-	perameters{
+	parameters{
 		string(name: "PORT", description: "Please assign one port number to docker container:")
 	}
 	stages{
