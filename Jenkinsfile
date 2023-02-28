@@ -11,14 +11,16 @@ pipeline{
 			steps{
 				checkout scm
 			}
-        }
-
-        stage("Creating container"){
-        	steps{
-        		docker run --p 80:80 --name httpd_${GIT_BRANCH} httpd
         	}
 
-        }
+        	stage("Creating container"){
+        		steps{
+				sh '''
+        			docker run --p 80:80 --name httpd_${GIT_BRANCH} httpd
+				sh '''
+			}				
+
+        	}
 	}
 	
 }
