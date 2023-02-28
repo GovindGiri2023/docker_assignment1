@@ -10,9 +10,9 @@ pipeline{
 			}
 
 		}
-		stage("Checkout scp"){
+		stage("Removing Runnint container"){
 			steps{
-				checkout scm
+				sh "sudo docker rm httpd_${GIT_BRANCH}"
 			}
         	}
 
