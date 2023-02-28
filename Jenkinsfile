@@ -15,7 +15,7 @@ pipeline{
 
         	stage("Creating container"){
         		steps{
-        			sh "docker run --p 80:80 --name httpd1 httpd"
+        			sh "docker run -p 80:80 --name httpd1 httpd"
         		}
 
         }
