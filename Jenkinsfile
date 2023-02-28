@@ -1,5 +1,9 @@
 pipeline{
-	agent any
+	agent {
+		label{
+			label "build_in"
+		}
+	}
 	parameters{
 		string(name: "PORT", description: "Please assign one port number to docker container:")
 	}
@@ -7,6 +11,12 @@ pipeline{
 		stage("Cleaning workspace"){
 			steps{
 				cleanWs ()
+			}
+
+		}
+		stage("checkout scm"){
+			steps{
+				checkout scm 
 			}
 
 		}
@@ -23,6 +33,11 @@ pipeline{
         		}
 
                }
+		stage("Coping index file to container:"){
+			steps{
+				sh "sudo docker cp $WORKSPACE/index.html httpd_${GIT_BRANCH}:/usr/local/apache2/htdocs/"
+			}
+		}
 	}
 	
 }
