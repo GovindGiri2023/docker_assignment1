@@ -25,7 +25,7 @@ pipeline{
                }
 		stage("Coping index file to container:"){
 			steps{
-				sh "sudo cp -r index.html httpd_${GIT_BRANCH}:/usr/local/apache2/htdocs/"
+				sh "sudo cp -r $WORKSPACE/index.html httpd_${GIT_BRANCH}:/usr/local/apache2/htdocs/"
 			}
 		}
 	}
